@@ -780,6 +780,33 @@ a.btn--header.is-active {
 .standards__panel { display: none; }
 .standards__panel.is-active { display: block; }
 
+@media (min-width: 1025px) {
+  .standards__panel {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 320ms var(--ease), transform 320ms var(--ease), visibility 0s linear 320ms;
+  }
+  .standards__panel.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity 320ms var(--ease), transform 320ms var(--ease), visibility 0s linear 0s;
+  }
+  .standards__panel-photo {
+    transition: transform 420ms var(--ease);
+  }
+  .standards__panel.is-active .standards__panel-photo {
+    transform: scale(1);
+  }
+  .standards__panel:not(.is-active) .standards__panel-photo {
+    transform: scale(0.98);
+  }
+}
+
 /* Panel photo banner (BuildTab alignment R1) — her standart panelinde 16:10 foto */
 .standards__panel-photo {
   position: relative;
