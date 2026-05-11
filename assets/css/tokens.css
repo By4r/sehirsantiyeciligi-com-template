@@ -1,0 +1,85 @@
+/* tokens.css — sehirsantiyeciligi.com
+   Font import (latin-ext subset zorunlu) + CSS custom properties.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap&subset=latin-ext');
+
+:root {
+  /* === Renk === */
+  --c-ink:        #0E1A2B;
+  --c-ink-soft:   #1B2838;
+  --c-paper:      #FAF7F2;
+  --c-paper-2:    #F1ECE3;
+
+  --c-amber:      #E76F2C;
+  --c-amber-dark: #BF5A22;
+  --c-amber-soft: #FBE5D2;
+
+  --c-text:       #1F2937;
+  --c-text-soft:  #5B6573;
+  --c-rule:       #D9D3C6;
+
+  --c-error:      #B43A1E;
+  --c-success:    #1E6F4A;
+
+  /* === Tipografi === */
+  --ff-display: "Saira Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --ff-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ff-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Boyut skalası (desktop default; mobile media query'de override) */
+  --fs-h1:        80px;
+  --fs-h2:        56px;
+  --fs-h3:        22px;
+  --fs-body:      17px;
+  --fs-overline:  12px;
+
+  --lh-tight:     1.05;
+  --lh-snug:      1.25;
+  --lh-body:      1.6;
+
+  --tracking-overline: 0.12em;
+
+  /* === Spacing === */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* === Layout === */
+  --container-max: 1280px;
+  --content-max:   1120px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --rule-w: 1px;
+
+  /* === Motion === */
+  --t-fast: 150ms;
+  --t-med:  250ms;
+  --ease:   cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-h1: 44px;
+    --fs-h2: 32px;
+    --fs-h3: 20px;
+    --fs-body: 16px;
+    --fs-overline: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0.01ms;
+    --t-med:  0.01ms;
+  }
+}

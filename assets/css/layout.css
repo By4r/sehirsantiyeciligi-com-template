@@ -1,0 +1,98 @@
+/* layout.css — container, section ritim, grid sistemleri */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+}
+@media (max-width: 768px) {
+  .container { padding: 0 var(--s-5); }
+}
+
+.section {
+  padding: var(--s-10) 0;
+  position: relative;
+}
+.section--lg { padding: 160px 0; }
+.section--sm { padding: var(--s-9) 0; }
+.section--paper-2 { background: var(--c-paper-2); }
+.section--ink {
+  background: var(--c-ink);
+  color: var(--c-paper);
+}
+.section--ink h1, .section--ink h2, .section--ink h3 { color: var(--c-paper); }
+.section--ink .section-overline { color: rgba(250, 247, 242, 0.65); }
+.section--ink .section-overline::after { background: rgba(250, 247, 242, 0.18); }
+
+@media (max-width: 768px) {
+  .section { padding: var(--s-8) 0; }
+  .section--lg { padding: var(--s-9) 0; }
+}
+
+/* Section header (overline + h2 + lead) */
+.section-header {
+  margin-bottom: var(--s-7);
+  max-width: 880px;
+}
+.section-header__nr {
+  color: var(--c-amber);
+  font-weight: 700;
+}
+.section-header h2 {
+  margin: var(--s-3) 0 var(--s-4);
+}
+.section-header .lead { margin-bottom: 0; }
+@media (max-width: 768px) {
+  .section-header { margin-bottom: var(--s-6); }
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: var(--s-6);
+}
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid--2-1 { grid-template-columns: 2fr 1fr; }
+.grid--1-2 { grid-template-columns: 1fr 2fr; }
+
+@media (max-width: 1024px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--2-1, .grid--1-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+}
+
+.stack > * + * { margin-top: var(--s-5); }
+.stack--lg > * + * { margin-top: var(--s-7); }
+.stack--sm > * + * { margin-top: var(--s-3); }
+
+.flow { max-width: 720px; }
+.flow > * + * { margin-top: var(--s-4); }
+
+/* Barrier-stripe accent (45° amber + ink bar) */
+.barrier-stripe {
+  height: 14px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--c-amber) 0,
+    var(--c-amber) 14px,
+    var(--c-ink) 14px,
+    var(--c-ink) 28px
+  );
+}
+.barrier-stripe--thin { height: 6px; }
+.barrier-stripe--accent {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--c-amber) 0,
+    var(--c-amber) 10px,
+    var(--c-paper) 10px,
+    var(--c-paper) 20px
+  );
+}

@@ -1,0 +1,29 @@
+node_modules/
+.DS_Store
+*.log
+.env
+vendor/
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build / cache
+.cache/
+dist/
+build/
+.parcel-cache/
+
+# Env variants
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+
+# Faz 2 (Laravel)
+/storage/*.key
+/public/hot
+/public/storage
