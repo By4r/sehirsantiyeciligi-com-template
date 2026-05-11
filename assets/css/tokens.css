@@ -55,9 +55,17 @@
   /* === Layout === */
   --container-max: 1280px;
   --content-max:   1120px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  /* Radius dozajı — Dada Teknik referansından (gerçek CSS: --base 8 / --lg 10) */
+  --radius-xs: 4px;   /* badge, checkbox, mikro */
+  --radius-sm: 6px;   /* form input */
+  --radius-md: 8px;   /* buton, kart kontur (Dada --base) */
+  --radius-lg: 10px;  /* kart, ikon container (Dada --lg) */
+  --radius-xl: 14px;  /* foto container, large surface */
+
+  /* Shadow dozajı — Dada Teknik tarzı yumuşak ve diffüz */
+  --sh-card:    0 2px 6px 0 rgba(14, 26, 43, 0.04);
+  --sh-lift:    0 14px 32px -8px rgba(14, 26, 43, 0.12);
+  --sh-amber:   0 14px 32px -10px rgba(231, 111, 44, 0.22);
 
   --rule-w: 1px;
 

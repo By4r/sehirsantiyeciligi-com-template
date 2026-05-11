@@ -23,6 +23,11 @@ build/
 # OS
 Thumbs.db
 
+# Playwright + geçici screenshot çıktıları
+.playwright-mcp/
+tasks/screenshots/
+sss-*.png
+
 # Faz 2 (Laravel)
 /storage/*.key
 /public/hot

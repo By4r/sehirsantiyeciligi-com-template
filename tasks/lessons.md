@@ -127,6 +127,71 @@ Tek dosya kütüphane yok; saf vanilla CSS (4 dosya: tokens / base / layout / co
 **Sebep + Çözüm — `<i>` ve `.nav a` specificity:**
 - FA `<i>` tag'leri buton içinde kullanıldığında `.nav a` gibi nested selector'lar (.0,1,1) `.btn--header` (0,1,0) override edebiliyor. Bu davranışın farkında ol — sticky header'da `a.btn--header` veya `.nav a.btn--header` ile specificity bump gerekli
 
+### 2026-05-11 — Revize Turu 3: BuildTab görsel dili + foto slot pattern + radius normalize
+Yasin Bey canlı mockup'ı gördü ve "görselleştirme lazım" dedi; referans olarak BuildTab `header-infostack` template'ini onayladı. Dada Teknik dozajında (orta yuvarlaklık, profesyonel) görsel dil revizyonu yapıldı.
+
+**Neden:**
+- Custom blueprint SVG kurumsal-foto beklentisini karşılamıyordu — foto önceliği baskın
+- Border-radius ad-hoc değerlerde (`3px / 4px / 6px / 10px / 14px / 50%`) tutarsızdı; BuildTab/Dada Teknik orta dozajına yaklaştırılması istendi
+- Foto henüz yok (Yasin Bey'den gelecek) → placeholder dili tutarlı olmalı
+
+**Değişiklikler:**
+
+1. **Radius token skalası genişletildi** (`tokens.css`):
+   - Eski: `--sm: 6px / --md: 10px / --lg: 14px`
+   - Yeni: `--xs: 4px (chip/badge/checkbox) / --sm: 8px (form input) / --md: 12px (buton) / --lg: 16px (kart, ikon container) / --xl: 20px (foto)`
+   - Inline `border-radius: 3px / 4px` instance'ları (`logo__mark`, `badge`, `doc-card__icon`, `checkbox input`) `var(--radius-xs)`'e map edildi
+
+2. **`.photo-slot` component eklendi** (placeholder dili):
+   - Koyu lacivert zemin (`--c-ink-soft`) + 1.5px dashed amber border + ince blueprint grid pattern + JetBrains Mono uppercase label
+   - Varyantlar: `--hero` (16:10), `--portrait` (4:5), `--landscape` (16:9), `--square` (1:1)
+   - Final foto geldiğinde `background-image: url()` + `border: 0` ile değiştirilir, ~5 dk işi
+
+3. **Hero blueprint SVG → foto slot** (`index.html` hero):
+   - 50+ satır SVG çizimi atıldı; `.hero__photo > .photo-slot--hero + .hero__accent-bar` (4×64 sol-alt vertical amber bar)
+   - `hero__visual` CSS minimal wrapper'a indirgendi; aspect-ratio/grid pattern photo-slot'a taşındı
+
+4. **`.section-header` accent line** (BuildTab pattern):
+   - H2 altına `::after` ile 32×4 amber bar (border-radius xs); mobile 28×3
+   - Lead `max-width: 720px`; H2 ile arasında `--s-5` boşluk
+
+5. **`.card` hover lift + ikon container normalize:**
+   - Hover: `translateY(-4px) + shadow 0 12px 28px -10px rgba(ink,0.18)` (eski: sadece border-color shift)
+   - `--radius-lg` (idle box-shadow `0 1px 2px rgba(ink,0.03)`)
+   - `.card__icon`: 48×48 (eski 40), `--radius-lg` (eski sm), font 20 (eski 18) → rounded square, daire değil
+   - `.icon-strip__icon`: `--radius-lg` (eski sm)
+   - `prefers-reduced-motion`: hover transform disable
+
+6. **`.card--win-lg` Bölüm 4 foto-arkalı placeholder:**
+   - İçeride blueprint grid pattern + sağ-üstte "SECTION 04 — KAZANIM PHOTO" dashed mono label
+   - İkon 56×56, `--radius-lg`
+   - Hover lift + dark shadow
+
+7. **Bölüm 2 `.nedir-grid` 2-col eklendi** (`layout.css`):
+   - `1.1fr 1fr` sol metin + sağ portrait photo slot; foto sticky (top:100px)
+   - Mobile <1024: tek kolon stack
+
+8. **Bölüm 8 `.ext-card__mark` 16:9 DT logo lockup:**
+   - Eski: 56×56 inline DT yazısı küçük kare
+   - Yeni: 16:9 aspect, full-width, blueprint grid bg, sağ-altta "DT LOGO" mono label, font-size 30px
+
+**Nasıl uygulanır:**
+- Foto placeholder gerektiren her yeni bölümde `.photo-slot--<aspect>` kullan; ayrı pattern üretme
+- Yeni komponent eklerken radius değerini token'dan al; raw px yazma (xs/sm/md/lg/xl skalası)
+- Card hover lift için kendi transform yazma; `.card` extend et veya benzer pattern kopyala (translateY -4 + shadow med + 250ms transition + reduced-motion guard)
+- Yeni section-header'lar otomatik accent line alır (H2 `::after`); özel davranış istemiyorsan `section-header--no-bar` modifier eklenir (henüz yok, gerekirse eklenebilir)
+- BuildTab gibi dış referansların metnini/yapısını **kopyalama** — sadece görsel dil (radius dozajı, hover dili, kart pattern'ı, accent çubuk) alınır. content.md TEK doğruluk kaynağı kalır
+
+**Foto slot envanteri (Yasin Bey foto gönderince güncellenecek):**
+| Bölüm | Slot | Aspect | Tahmini dimensions |
+|---|---|---|---|
+| Hero | `.photo-slot--hero` | 16:10 | ~540×337 desktop |
+| 2 — Nedir? | `.photo-slot--portrait` | 4:5 | ~480×600 desktop |
+| 4 — Kazanım büyük kart | `card--win-lg` bg-image | dinamik | full card bg |
+| 8 — DT lockup | `.ext-card__mark` | 16:9 | ~320×180 desktop |
+
+Bölüm 7 step thumb (opsiyonel) bu turda **eklenmedi** — sade kalsın kararı (Beyar default).
+
 ## İş Akışı & Onay
 
 _(henüz item yok)_
