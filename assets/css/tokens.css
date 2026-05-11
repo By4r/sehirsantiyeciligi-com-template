@@ -2,7 +2,7 @@
    Font import (latin-ext subset zorunlu) + CSS custom properties.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800&display=swap&subset=latin-ext');
 
 :root {
   /* === Renk === */
@@ -25,7 +25,7 @@
   /* === Tipografi === */
   --ff-display: "Roboto", system-ui, sans-serif;
   --ff-body:    "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --ff-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ff-mono:    "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Boyut skalası (desktop default; mobile media query'de override) */
   --fs-h1:        68px;
