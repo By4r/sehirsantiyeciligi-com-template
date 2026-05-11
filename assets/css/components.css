@@ -157,13 +157,20 @@ a.btn--header:hover,
   letter-spacing: 0.005em;
 }
 .nav a:hover { color: var(--c-ink); }
-.nav a.is-active { color: var(--c-ink); }
-.nav a.is-active::after {
+.nav a.is-active:not(.btn--header) { color: var(--c-ink); }
+.nav a.is-active:not(.btn--header)::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 2px;
   background: var(--c-amber);
+}
+/* CTA aktifken solid amber fill — ink-on-ink invisibility fix */
+.nav a.btn--header.is-active,
+a.btn--header.is-active {
+  background: var(--c-amber);
+  border-color: var(--c-amber);
+  color: #fff;
 }
 
 .nav-toggle {
