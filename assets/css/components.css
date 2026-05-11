@@ -1543,6 +1543,7 @@ input[type="date"].input::-webkit-calendar-picker-indicator {
 }
 .ext-editorial__body { max-width: 720px; display: flex; flex-direction: column; gap: var(--s-6); }
 .ext-editorial__body .flow { max-width: 100%; }
+.ext-editorial__body h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; }
 
 /* on-dark variants */
 .section-header--on-dark h2,
