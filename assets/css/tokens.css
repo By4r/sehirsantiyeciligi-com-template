@@ -2,7 +2,7 @@
    Font import (latin-ext subset zorunlu) + CSS custom properties.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap&subset=latin-ext');
 
 :root {
   /* === Renk === */
@@ -23,13 +23,13 @@
   --c-success:    #1E6F4A;
 
   /* === Tipografi === */
-  --ff-display: "Saira Semi Condensed", "Arial Narrow", system-ui, sans-serif;
-  --ff-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ff-display: "Rubik", system-ui, sans-serif;
+  --ff-body:    "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
   --ff-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Boyut skalası (desktop default; mobile media query'de override) */
-  --fs-h1:        80px;
-  --fs-h2:        56px;
+  --fs-h1:        68px;
+  --fs-h2:        46px;
   --fs-h3:        22px;
   --fs-body:      17px;
   --fs-overline:  12px;
