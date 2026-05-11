@@ -36,6 +36,12 @@ export function initDragSlider() {
 }
 
 function initOne(slider) {
+  // Short sliders (e.g. tag chips) feel snappier with a quicker decay
+  // and a stronger release kick. Detected by total scrollable distance.
+  const isCompact = slider.classList.contains('post-tags');
+  const friction = isCompact ? 2.4 : FRICTION_PER_SEC;
+  const boost = isCompact ? 1.5 : VELOCITY_BOOST;
+
   let isDown = false;
   let startX = 0;
   let startScroll = 0;
@@ -54,7 +60,7 @@ function initOne(slider) {
     lastFrameT = now;
     slider.scrollLeft -= velocity * dt;
     // Exponential decay: v(t+dt) = v(t) * exp(-k*dt)
-    velocity *= Math.exp(-FRICTION_PER_SEC * dt);
+    velocity *= Math.exp(-friction * dt);
 
     // Stop at boundaries
     const max = slider.scrollWidth - slider.clientWidth;
@@ -106,7 +112,7 @@ function initOne(slider) {
       const last = samples[samples.length - 1];
       const dt = last.t - first.t;
       if (dt > 8) {
-        velocity = ((last.x - first.x) / dt) * 1000 * VELOCITY_BOOST;
+        velocity = ((last.x - first.x) / dt) * 1000 * boost;
         if (velocity > MAX_VELOCITY) velocity = MAX_VELOCITY;
         if (velocity < -MAX_VELOCITY) velocity = -MAX_VELOCITY;
       }
