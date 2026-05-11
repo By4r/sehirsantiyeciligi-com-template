@@ -2,7 +2,7 @@
 
 /* Responsive reset */
 *, *::before, *::after { box-sizing: border-box; }
-html, body { overflow-x: hidden; max-width: 100%; }
+html, body { overflow-x: clip; max-width: 100%; }
 figure { margin: 0; }
 img, video, svg { max-width: 100%; height: auto; }
 
