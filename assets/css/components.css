@@ -320,6 +320,16 @@ a.btn--header.is-active {
 }
 .hero__bracket--tl { top: 80px; left: 80px; }
 .hero__bracket--br { bottom: 80px; right: 80px; }
+
+/* photo-bg section'da bracket'ler container kenarlarına hizalanır */
+.section--photo-bg .hero__bracket--tl {
+  top: var(--s-7);
+  left: max(var(--s-5), calc((100% - var(--container-max)) / 2 + var(--s-5)));
+}
+.section--photo-bg .hero__bracket--br {
+  bottom: var(--s-7);
+  right: max(var(--s-5), calc((100% - var(--container-max)) / 2 + var(--s-5)));
+}
 .hero__bracket span {
   display: block;
   background: var(--c-amber);
