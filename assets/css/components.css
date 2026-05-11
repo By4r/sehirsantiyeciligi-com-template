@@ -717,9 +717,12 @@ a.btn--header.is-active {
 /* ============ Standartlar tab/accordion ============ */
 .standards {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 240px minmax(0, 640px);
   gap: var(--s-8);
   align-items: start;
+  justify-content: center;
+  max-width: 980px;
+  margin: 0 auto;
 }
 .standards__list {
   display: flex;
@@ -891,9 +894,7 @@ a.btn--header.is-active {
   .standards__panel {
     grid-column: 2;
     grid-row: 1 / span 6;
-    align-self: start;
-    position: sticky;
-    top: 100px;
+    align-self: center;
     max-width: 640px;
     padding-left: var(--s-4);
   }
