@@ -530,6 +530,18 @@ a.btn--header:hover,
 /* Desktop: hide chev on standards tab */
 @media (min-width: 1025px) {
   .standards__tab .chev { display: none; }
+
+  /* Dissolve list + items so tabs and panels become direct grid children */
+  .standards__list { display: contents; }
+  .standards__item { display: contents; }
+  .standards__tab { grid-column: 1; }
+  .standards__panel {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    align-self: start;
+    position: sticky;
+    top: 100px;
+  }
 }
 
 /* ============ Process steps (horizontal timeline) ============ */
