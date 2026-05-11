@@ -135,4 +135,10 @@ function initOne(slider) {
   slider.addEventListener('pointercancel', release);
   slider.addEventListener('pointerleave', release);
   slider.addEventListener('wheel', cancelMomentum, { passive: true });
+
+  // Sürüklerken native link / image drag-ghost'unu engelle
+  slider.addEventListener('dragstart', (e) => e.preventDefault());
+  slider.querySelectorAll('a, img').forEach((el) => {
+    el.setAttribute('draggable', 'false');
+  });
 }

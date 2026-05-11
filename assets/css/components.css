@@ -2062,6 +2062,12 @@ i.icon::before { line-height: 1; }
 .proj-slider { cursor: grab; }
 .proj-slider.is-dragging { cursor: grabbing; scroll-snap-type: none; }
 .proj-slider.is-dragging a { pointer-events: none; }
+.proj-slider a, .proj-slider img,
+.icon-strip a, .icon-strip img,
+.post-tags a {
+  -webkit-user-drag: none;
+  user-select: none;
+}
 .proj-card--soon { opacity: 0.92; cursor: not-allowed; }
 .proj-card--soon:hover { transform: none; border-color: var(--c-rule); box-shadow: var(--sh-card); }
 .proj-card__nr--date {
