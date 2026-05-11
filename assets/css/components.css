@@ -20,6 +20,9 @@
 }
 .btn:hover { transform: translateY(-1px); text-decoration: none; }
 .btn .icon { font-size: 13px; flex: none; }
+@media (max-width: 480px) {
+  .btn { font-size: 14px; padding: 12px 18px; flex-wrap: wrap; max-width: 100%; }
+}
 
 .btn--primary {
   background: var(--c-amber);
