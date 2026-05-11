@@ -2471,7 +2471,7 @@ i.icon::before { line-height: 1; }
     scroll-snap-align: start;
   }
 
-  /* 06 Süreç — dikey accordion mobil iyileştirme */
+  /* 06 Süreç — mobil: accordion kapalı, tüm açıklamalar açık */
   .process--accordion { gap: var(--s-3); }
   .process::before { display: none; }
   .process--accordion .process__step {
@@ -2481,20 +2481,32 @@ i.icon::before { line-height: 1; }
     padding: var(--s-4) !important;
     grid-template-columns: 36px 1fr;
     gap: var(--s-4);
-    align-items: center;
+    align-items: start;
+    cursor: default;
   }
   .process--accordion .process__step[data-open="true"] {
     border-color: var(--c-amber);
-    align-items: start;
+    background: rgba(231, 111, 44, 0.04);
+  }
+  .process--accordion .process__step[data-open="true"] h4 {
+    color: var(--c-amber-dark);
   }
   .process--accordion .process__nr {
     width: 36px;
     height: 36px;
     font-size: 12px;
     margin-bottom: 0;
+    transform: none !important;
+  }
+  .process--accordion .process__step p {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    margin-top: var(--s-2);
+    font-size: 13px;
   }
   .process--accordion .process__step h4 { font-size: 15px; }
-  .process--accordion .process__step p { font-size: 13px; }
 
   /* 08 Dokümanlar — doc-card grid yatay slider */
   .grid--3:has(.doc-card) {
