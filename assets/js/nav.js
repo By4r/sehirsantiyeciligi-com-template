@@ -18,6 +18,7 @@ export function initNav() {
     const closeIcon = toggle.querySelector('.ico-close');
     toggle.addEventListener('click', () => {
       const open = nav.classList.toggle('is-open');
+      document.body.classList.toggle('nav-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
       if (openIcon && closeIcon) {
@@ -29,6 +30,7 @@ export function initNav() {
     nav.addEventListener('click', (e) => {
       if (e.target.matches('a')) {
         nav.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
         toggle.setAttribute('aria-expanded', 'false');
         if (openIcon && closeIcon) {
           openIcon.style.display = '';
