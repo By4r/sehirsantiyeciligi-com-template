@@ -31,7 +31,7 @@
   overflow: hidden;
   background: var(--c-ink);
   color: var(--c-paper);
-  padding: var(--s-8) 0;
+  padding: var(--s-9) 0;
 }
 .section--photo-bg__photo {
   position: absolute;
@@ -45,8 +45,8 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(14,26,43,0.55) 0%, rgba(14,26,43,0.65) 50%, rgba(14,26,43,0.75) 100%),
-    radial-gradient(circle at 85% 30%, rgba(231,111,44,0.18) 0%, rgba(231,111,44,0) 55%);
+    linear-gradient(180deg, rgba(14,26,43,0.42) 0%, rgba(14,26,43,0.55) 50%, rgba(14,26,43,0.70) 100%),
+    radial-gradient(circle at 85% 30%, rgba(231,111,44,0.20) 0%, rgba(231,111,44,0) 55%);
 }
 .section--photo-bg .container { position: relative; z-index: 2; }
 .section--photo-bg h1, .section--photo-bg h2, .section--photo-bg h3 { color: var(--c-paper); }
